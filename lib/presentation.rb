@@ -11,10 +11,22 @@ class Presentation
   end
 
   def next!
-    @current_position += 1
+    if self.next?
+      @current_position += 1
+    end
   end
 
   def previous!
-    @current_position -= 1
+    if self.previous?
+      @current_position -= 1
+    end
+  end
+
+  def next?
+    return @current_position < @slides.size - 1
+  end
+
+  def previous?
+    return @current_position > 0
   end
 end

@@ -14,7 +14,15 @@ presentation = Presentation.new(slides, formatter)
 
 puts presentation.current_slide
 
-sleep(2)
-presentation.next!
-puts presentation.current_slide
+input = nil
+while input != "exit"
+  print "next, exit> "
+  input = gets.chomp.downcase
+
+  if input == "next"
+    presentation.next!
+    puts presentation.current_slide
+  end
+end
+
 

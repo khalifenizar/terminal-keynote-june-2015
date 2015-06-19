@@ -19,9 +19,13 @@ while input != "exit" && input != "e"
   print "next, prev, exit> "
   input = gets.chomp.downcase
 
-  if (input == "next" || input == "n") && presentation.next?
-    presentation.next!
-    puts presentation.current_slide
+  if input == "next" || input == "n"
+    if !presentation.next?
+      break
+    else
+      presentation.next!
+      puts presentation.current_slide
+    end
   elsif (input == "prev" || input == "p") && presentation.previous?
     presentation.previous!
     puts presentation.current_slide

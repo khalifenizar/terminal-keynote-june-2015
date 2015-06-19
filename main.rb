@@ -16,7 +16,7 @@ puts presentation.current_slide
 
 input = nil
 while input != "exit" && input != "e"
-  print "next, prev, exit> "
+  print "next, prev, auto, exit> "
   input = gets.chomp.downcase
 
   if (input == "next" || input == "n") && presentation.next?
@@ -25,6 +25,14 @@ while input != "exit" && input != "e"
   elsif (input == "prev" || input == "p") && presentation.previous?
     presentation.previous!
     puts presentation.current_slide
+  elsif (input == "auto" || input == "a")
+    while presentation.next?
+      presentation.next!
+      puts presentation.current_slide
+      sleep(3)
+    end
+
+    break
   end
 end
 

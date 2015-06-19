@@ -13,4 +13,8 @@ class Presentation
   def next!
     @current_position += 1
   end
+
+  def previous!
+    @current_position -= 1
+  end
 end

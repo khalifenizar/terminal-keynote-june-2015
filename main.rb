@@ -16,11 +16,14 @@ puts presentation.current_slide
 
 input = nil
 while input != "exit"
-  print "next, exit> "
+  print "next, prev, exit> "
   input = gets.chomp.downcase
 
   if input == "next"
     presentation.next!
+    puts presentation.current_slide
+  elsif input == "prev"
+    presentation.previous!
     puts presentation.current_slide
   end
 end

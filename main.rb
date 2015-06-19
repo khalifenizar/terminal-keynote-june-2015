@@ -15,14 +15,14 @@ presentation = Presentation.new(slides, formatter)
 puts presentation.current_slide
 
 input = nil
-while input != "exit"
+while input != "exit" && input != "e"
   print "next, prev, exit> "
   input = gets.chomp.downcase
 
-  if input == "next" && presentation.next?
+  if (input == "next" || input == "n") && presentation.next?
     presentation.next!
     puts presentation.current_slide
-  elsif input == "prev" && presentation.previous?
+  elsif (input == "prev" || input == "p") && presentation.previous?
     presentation.previous!
     puts presentation.current_slide
   end
